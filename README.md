@@ -9,6 +9,7 @@ __Table of Contents__
 - [Basics](#basics)
   - [Delete a remote branch](#delete-a-remote-branch)
 - [Github](#github)
+  - [Fetch a single pull request](#fetch-a-single-pull-request)
   - [Fetch all pull requests](#fetch-all-pull-requests)
 
 ## Basics
@@ -32,8 +33,21 @@ Friendly reminder: This works for any ref, so not only branches, but also tags.
 
 ## Github
 
-__NOTE:__ Github puts all pull requests into the _pull_ namespace:
+Github puts all pull requests into the _pull_ namespace:
 _refs/pull/*/head_.
+
+That namespace is read-only, so you can't push back to it.
+
+#### Fetch a single pull request
+
+Let's assume you cloned [vim-startify](https://github.com/mhinz/vim-startify)
+and want to fetch this
+[pull request #36](https://github.com/mhinz/vim-signify/pull/36) locally:
+
+```
+git fetch origin refs/pull/36/head:newbranch
+git checkout newbranch
+```
 
 #### Fetch all pull requests
 
