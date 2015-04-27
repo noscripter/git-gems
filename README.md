@@ -6,9 +6,29 @@ _This is yet another "learn git by example" document. Enjoy the ride!_
 
 __Table of Contents__
 
+- [Basics](#basics)
+  - [Delete a remote branch](#delete-a-remote-branch)
 - [Github](#github)
   - [Fetch all pull requests](#fetch-all-pull-requests)
 
+## Basics
+
+#### Delete a remote branch
+
+Before git 1.7 you would simply use push with a refspec (_\<src>:\<dst>_) that has
+an empty _\<src>_ field:
+
+```
+git push origin :mybranch
+```
+
+The new way is to use this instead:
+
+```
+git push origin --delete mybranch
+```
+
+Friendly reminder: This works for any ref, so not only branches, but also tags.
 
 ## Github
 
