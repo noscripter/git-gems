@@ -48,7 +48,7 @@ Afterwards you have to rebase master onto the testing branch, because
 development in master didn't stand still in the meantime.
 
 Only then you can make a fast-forward merge into master (you don't want a merge
-commit if you're merging only a single commiy anyway).
+commit if you're merging only a single commit anyway).
 
 But, usually it's way easier if you have commit rights for master. Then you can
 simply use:
