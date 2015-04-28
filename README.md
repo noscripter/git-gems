@@ -8,6 +8,8 @@ __Table of Contents__
 
 - [Basics](#basics)
   - [Delete a remote branch](#delete-a-remote-branch)
+- [Advanced](#advanced)
+  - [Squash your branches](#squash-your-branches)
 - [Github](#github)
   - [Fetch a single pull request](#fetch-a-single-pull-request)
   - [Fetch all pull requests](#fetch-all-pull-requests)
@@ -30,6 +32,37 @@ git push origin --delete mybranch
 ```
 
 Friendly reminder: This works for any ref, so not only branches, but also tags.
+
+## Advanced
+
+#### Squash your branches
+
+Often development happens in feature branches with multiple commits, but the
+project's guidelines require them squashed into a single commit before merging
+into master.
+
+Now the usual approach would be to to `rebase -i` all new commits in the testing
+branch and mark them with `s` to meld them into their parent commits.
+
+Afterwards you have to rebase master onto the testing branch, because
+development in master didn't stand still in the meantime.
+
+Only then you can make a fast-forward merge into master (you don't want a merge
+commit if you're merging only a single commiy anyway).
+
+But, usually it's way easier if you have commit rights for master. Then you can
+simply use:
+
+```
+git merge --squash testing
+git commit
+```
+
+This will create a single new commit on top of your master that contains all new
+changes from the testing branch without creating a merge commit.
+
+Another small advantage is that your testing branch is still split up into
+multiple commits, since it was never rebased and squashed.
 
 ## Github
 
