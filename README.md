@@ -9,6 +9,7 @@ __Table of Contents__
 - [Basics](#basics)
   - [Delete a remote branch](#delete-a-remote-branch)
 - [Advanced](#advanced)
+  - [Changing the root commit](#changing-the-root-commit)
   - [Squash your branches](#squash-your-branches)
 - [Github](#github)
   - [Fetch a single pull request](#fetch-a-single-pull-request)
@@ -34,6 +35,36 @@ git push origin --delete mybranch
 Friendly reminder: This works for any ref, so not only branches, but also tags.
 
 ## Advanced
+
+#### Changing the root commit
+
+Consider this state:
+
+```
+$ git log --oneline
+902ed06 third
+5305bfc second
+d41d64a init
+```
+
+If you want to change the commit from 3 commits ago, you would usually use `git
+rebase -i HEAD~3`. But in this case it's the root commit and the command would
+fail:
+
+```
+$ git rebase -i HEAD~3
+fatal: Needed a single revision
+invalid upstream HEAD~3
+```
+
+Use the following in these cases:
+
+```
+$ git rebase -i --root
+```
+
+`--root` usually takes a reference, but defaults to HEAD (like most git
+commands) which means "rebase all commits from root up to HEAD".
 
 #### Squash your branches
 
