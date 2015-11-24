@@ -149,11 +149,24 @@ Show all branches that aren't merged into master yet:
 ```
 unmerged = branch --no-merged master
 ```
-Show committers sorted by commit count:
+Show authors sorted by commit count:
 ```
 rank = shortlog -sn --no-merges
 ```
 Show root directory of the repo:
 ```
 root = rev-parse --show-toplevel
+```
+Show all authors. Especially useful if you know part of the name and want to
+lookup the corresponding mail address: 
+```
+authors = "!f() { git log --no-merges --pretty='format:%<(26)%an <%ae>' --author \"$*\" | sort | uniq; }; f"
+```
+E.g.
+```
+neovim:master git authors Hi
+Alexis Hildebrandt         <afh@surryhill.net>
+Hinidu                     <hinidu@gmail.com>
+Marco Hinz                 <mh.codebro@gmail.com>
+Nicolas Hillegeer          <nicolas@hillegeer.com>
 ```
