@@ -14,6 +14,7 @@ __Table of Contents__
 - [Github](#github)
   - [Fetch a single pull request](#fetch-a-single-pull-request)
   - [Fetch all pull requests](#fetch-all-pull-requests)
+- [Aliases](#aliases)
 
 ## Basics
 
@@ -138,3 +139,12 @@ the remote's _pull_ namespace are fetched into  our local _pr_ namespace.
 If you want to work on a certain pull request, it's a good idea to create a
 branch for it, e.g. `git checkout -b pr23 origin/pr/23` or `git checkout -b
 fix-null-pointer-deref origin/pr/42`.
+
+## Aliases
+
+A list of useful aliases. Adjust as needed.
+
+Show all branches that aren't merged into master yet.
+```
+git config --global alias.unmerged 'branch --no-merged master'
+```
