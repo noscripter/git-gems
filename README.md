@@ -144,7 +144,11 @@ fix-null-pointer-deref origin/pr/42`.
 
 A list of useful aliases. Adjust as needed.
 
-Show all branches that aren't merged into master yet.
+Show all branches that aren't merged into master yet:
 ```
 git config --global alias.unmerged 'branch --no-merged master'
+```
+Show committers sorted by commit count:
+```
+git config --global alias.rank 'shortlog -sn --no-merges'
 ```
