@@ -9,6 +9,7 @@ __Table of Contents__
 - [Basics](#basics)
   - [Delete a remote branch](#delete-a-remote-branch)
   - [Use shallow clones](#use-shallow-clones)
+  - [Inline diff](#inline-diff)
 - [Advanced](#advanced)
   - [Changing the root commit](#changing-the-root-commit)
   - [Squash your branches](#squash-your-branches)
@@ -52,6 +53,13 @@ will be faster and the local repo smaller.
 Since git 1.9 you can even push and pull from shallow clones, making this
 technique perfect for quickly whipping up patches for your favourite open-source
 software.
+
+#### Inline diff
+
+Depending on the kind of changes, `git diff --word-diff` might give a more
+readable output.
+
+This also works for `git show`, `git log -p`, etc.
 
 ## Advanced
 
