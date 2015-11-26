@@ -8,6 +8,7 @@ __Table of Contents__
 
 - [Basics](#basics)
   - [Delete a remote branch](#delete-a-remote-branch)
+  - [Use shallow clones](#use-shallow-clones)
 - [Advanced](#advanced)
   - [Changing the root commit](#changing-the-root-commit)
   - [Squash your branches](#squash-your-branches)
@@ -34,6 +35,23 @@ git push origin --delete mybranch
 ```
 
 Friendly reminder: This works for any ref, so not only branches, but also tags.
+
+#### Use shallow clones
+
+If you don't plan to browse the history of a repo, use shallow clones. Shallow
+clones are clones that contain only part of the full history.
+
+```
+git clone --depth 1 <repo>
+```
+
+This way you only fetch the things needed to get the working directory of the
+latest commit of that repo. Since you fetch fewer objects, the actual cloning
+will be faster and the local repo smaller.
+
+Since git 1.9 you can even push and pull from shallow clones, making this
+technique perfect for quickly whipping up patches for your favourite open-source
+software.
 
 ## Advanced
 
